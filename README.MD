@@ -17,7 +17,7 @@ Features:
 
 Run from Source:
 - Clone the repository:
-git clone https://github.com/YOUR_USERNAME/BeyBlade.git
+git clone https://github.com/Hasperskyi/BeyBlade.git
 - Run the application:
 mvn javafx
 
