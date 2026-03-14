@@ -42,8 +42,10 @@ jobs:
           --dest C:\BeyBlade\target
 
     - name: Zip EXE
-      shell: cmd
-      run: powershell Compress-Archive C:\BeyBlade\target\BeyBlade C:\BeyBlade\target\BeyBlade-windows.zip
+      shell: powershell
+      run: 
+        Get-ChildItem C:\BeyBlade\target
+        Compress-Archive -Path C:\BeyBlade\target\* -DestinationPath C:\BeyBlade\target\BeyBlade-windows.zip
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
