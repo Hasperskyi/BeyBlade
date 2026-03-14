@@ -25,11 +25,11 @@ jobs:
     - name: Build Maven project
       run: mvn -B clean package
 
-   - name: Create JavaFX app image
-     shell: cmd
-     run: jpackage --name BeyBlade --input target --main-jar BeyBlade-1.0-SNAPSHOT.jar --main-class com.windows.Main --type app-image --dest target
+    - name: Create JavaFX app image
+      shell: cmd
+      run: jpackage --name BeyBlade --input target --main-jar BeyBlade-1.0-SNAPSHOT.jar --main-class com.windows.Main --type app-image --dest target
    
-   - name: Zip application
+    - name: Zip application
       run: powershell Compress-Archive target/BeyBlade target/BeyBlade-windows.zip
 
     - name: Upload artifact
