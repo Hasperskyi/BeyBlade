@@ -27,13 +27,7 @@ jobs:
 
     - name: Create JavaFX app image
       run: |
-        jpackage ^
-        --name BeyBlade ^
-        --input target ^
-        --main-jar BeyBlade-1.0-SNAPSHOT.jar ^
-        --main-class com.windows.Main ^
-        --type app-image ^
-        --dest target
+        jpackage --name BeyBlade --input target --main-jar BeyBlade-1.0-SNAPSHOT.jar --main-class com.windows.Main --type app-image --dest target
 
     - name: Zip application
       run: powershell Compress-Archive target/BeyBlade target/BeyBlade-windows.zip
