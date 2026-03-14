@@ -1,6 +1,6 @@
 BeyBlade JavaFX Game
 
-![Build](https://github.com/YOUR_USERNAME/BeyBlade/actions/workflows/build.yml/badge.svg)
+![Build](https://github.com/Hasperskyi/BeyBlade/actions/workflows/build.yml/badge.svg)
 
 A small desktop game written in Java and JavaFX.
 The project was created as a final assignment for a Java Advanced course.
