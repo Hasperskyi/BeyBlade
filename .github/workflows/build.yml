@@ -7,13 +7,17 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-latest
 
     steps:
-
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Copy to short path
+      run: |
+        mkdir C:\BeyBlade
+        xcopy . C:\BeyBlade /E /I /Y
+      shell: cmd
 
     - name: Setup Java
       uses: actions/setup-java@v4
@@ -22,6 +26,30 @@ jobs:
         java-version: 21
         cache: maven
 
+    - name: Build Maven project
+      run: mvn -B clean package
+      working-directory: C:\BeyBlade
+
+    - name: Create JavaFX EXE
+      shell: cmd
+      run: |
+        jpackage ^
+          --name BeyBlade ^
+          --input C:\BeyBlade\target ^
+          --main-jar BeyBlade-1.0-SNAPSHOT.jar ^
+          --main-class com.windows.Main ^
+          --type exe ^
+          --dest C:\BeyBlade\target
+
+    - name: Zip EXE
+      shell: cmd
+      run: powershell Compress-Archive C:\BeyBlade\target\BeyBlade C:\BeyBlade\target\BeyBlade-windows.zip
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: BeyBlade-windows
+        path: C:\BeyBlade\target\BeyBlade-windows.zip
     - name: Build Maven project
       run: mvn -B clean package
 
