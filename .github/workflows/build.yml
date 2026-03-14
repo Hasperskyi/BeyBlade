@@ -30,7 +30,7 @@ jobs:
       run: mvn -B clean package
       working-directory: C:\BeyBlade
 
-    - name: Create JavaFX EXE
+    - name: Create minimal JavaFX EXE
       shell: cmd
       run: |
         jpackage ^
@@ -39,16 +39,18 @@ jobs:
           --main-jar BeyBlade-1.0-SNAPSHOT.jar ^
           --main-class com.windows.Main ^
           --type exe ^
-          --dest C:\BeyBlade\target
+          --dest C:\BeyBlade\target ^
+          --compress 2 ^
+          --strip-native-commands ^
+          --add-modules java.base,javafx.controls,javafx.fxml,javafx.media
 
     - name: Zip EXE
       shell: powershell
       run: |
-        Get-ChildItem C:\BeyBlade\target
-        Compress-Archive -Path C:\BeyBlade\target\* -DestinationPath C:\BeyBlade\target\BeyBlade-windows.zip -Force
+        Compress-Archive -Path C:\BeyBlade\target\BeyBlade\* -DestinationPath C:\BeyBlade\target\BeyBlade-windows.zip -Force
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: BeyBlade-windows
-        path: C:\BeyBlade\target\BeyBlade-windows.zip  
+        path: C:\BeyBlade\target\BeyBlade-windows.zip
