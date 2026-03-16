@@ -1,7 +1,5 @@
 BeyBlade JavaFX Game
 
-![Build](https://github.com/Hasperskyi/BeyBlade/actions/workflows/build.yml/badge.svg)
-
 A small desktop game written in Java and JavaFX.
 The project was created as a final assignment for a Java Advanced course.
 It demonstrates a simple game interface, sound effects and basic game logic.
@@ -20,12 +18,6 @@ Run from Source:
 git clone https://github.com/Hasperskyi/BeyBlade.git
 - Run the application:
 mvn javafx
-
-
-Download:
-- Prebuilt versions can be downloaded from the Actions tab.
-- Download the artifact: BeyBlade-windows.zip
-- Extract and run: BeyBlade.exe
 
 
 Technologies:
