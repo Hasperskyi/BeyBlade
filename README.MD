@@ -1,4 +1,4 @@
-#BeyBlade JavaFX Game
+# BeyBlade JavaFX Game
 
 A small desktop game written in Java and JavaFX.
 The project was created as a final assignment for a Java Advanced course.
